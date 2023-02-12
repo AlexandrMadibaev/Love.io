@@ -70,6 +70,7 @@ body {
     position: absolute;
     left: 50%;
     margin-left: -768px;
+    z-index: 99;
 }
 
 a {
@@ -98,4 +99,18 @@ a:hover {
 
 #canvas{
     margin: 0 auto;
+}
+
+.loader{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #252525;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    line-height: 100vh;
+    font-weight: 700;
+    z-index: 98;
+    transition: 0.3s all linear;
 }
