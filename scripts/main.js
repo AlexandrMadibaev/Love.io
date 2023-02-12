@@ -5,9 +5,17 @@
     window.webkitRequestAnimationFrame ||
     window.msRequestAnimationFrame;
 
+  const audios = ["audio/main.mp3", "audio/Elegance.mp3", "audio/Lost.mp3"];
+  let audioIndex = 0;
   var audio = new Audio("audio/main.mp3");
 
+  audio.onended = () => {
+    audioIndex += 1;
+    new Audio(audios[audioIndex]).play();
+  };
+
   function play() {
+    audio.onloadeddata = (event) => console.log(event);
     audio.play();
   }
 
@@ -20,25 +28,25 @@
   const CANVASID = "canvas";
 
   let texts = [
-   "Нажми меня",
-   "Хочу тебе",
-   "сейчас",
-   "сказать,",
-   "Что лишь",
-   "с тобою",
-   "я мечтаю,",
-   "Я каждый",
-   "божий",
-   "день ",
-   "встречать.",
-   "Люблю тебя",
-   "Сасыгым",
-   "С праздником",
-   "Тебя",
-   "Дальше",
+    "Нажми меня",
+    "Хочу тебе",
+    "сейчас",
+    "сказать,",
+    "Что лишь",
+    "с тобою",
+    "я мечтаю,",
+    "Я каждый",
+    "божий",
+    "день ",
+    "встречать.",
+    "Люблю тебя",
+    "Сасыгым",
+    "С праздником",
+    "Тебя",
+    "Дальше",
     "только",
     "Музыка",
-    "Плейлист)"
+    "Плейлист)",
   ];
 
   let canvas,
