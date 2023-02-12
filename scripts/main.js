@@ -5,12 +5,9 @@
     window.webkitRequestAnimationFrame ||
     window.msRequestAnimationFrame;
 
+  var audio = new Audio("audio/main.mp3");
 
-    
   function play() {
-    var audio = new Audio(
-      "audio/Lost.mp3"
-    );
     audio.play();
   }
 
@@ -23,18 +20,25 @@
   const CANVASID = "canvas";
 
   let texts = [
-    "С 14м Февраля",
-    "Айгерим",
-    "У МЕНЯ НЕТ",
-    "ДЕНЕГ",
-    "НА МАКАРОНС",
-    "ИЗ ЗА ЭТОГО",
-    "ПОЛУЧАЙ",
-    "ЭТОТ САЙТ",
-    "ЗАРПЛАТУ ЕЩЕ",
-    " не ВЫДАЛИ",
-    "СПОКОЙНОЙ НОЧИ",
-    ":-* :-*",
+   "Нажми меня",
+   "Хочу тебе",
+   "сейчас",
+   "сказать,",
+   "Что лишь",
+   "с тобою",
+   "я мечтаю,",
+   "Я каждый",
+   "божий",
+   "день ",
+   "встречать.",
+   "Люблю тебя",
+   "Сасыгым",
+   "С праздником",
+   "Тебя",
+   "Дальше",
+    "только",
+    "Музыка",
+    "Плейлист)"
   ];
 
   let canvas,
@@ -196,23 +200,16 @@
     constructor(canvas) {
       let spread = canvas.height;
       let size = Math.random() * 1.2;
-      // 速度
       this.delta = 0.06;
-      // 现在的位置
       this.x = 0;
       this.y = 0;
-      // 上次的位置
       this.px = Math.random() * canvas.width;
       this.py = canvas.height * 0.5 + (Math.random() - 0.5) * spread;
-      // 记录点最初的位置
       this.mx = this.px;
       this.my = this.py;
-      // 点的大小
       this.size = size;
       // this.origSize = size
-      // 是否用来显示字
       this.inText = false;
-      // 透明度相关
       this.opacity = 0;
       this.fadeInRate = 0.005;
       this.fadeOutRate = 0.03;
