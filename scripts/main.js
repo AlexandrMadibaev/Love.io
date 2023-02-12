@@ -5,9 +5,30 @@
     window.webkitRequestAnimationFrame ||
     window.msRequestAnimationFrame;
 
-  const audios = ["audio/main.mp3", "audio/Elegance.mp3", "audio/Lost.mp3"];
+  const loaderEl = document.querySelector(".loader");
+
+  const audios = ["audio/main.mp3", "audio/Lost.mp3", "audio/Elegance.mp3"];
   let audioIndex = 0;
   var audio = new Audio("audio/main.mp3");
+
+  audio.onloadeddata = () => {
+    console.log("Hello");
+    loaderEl.style.display = "none";
+    document.addEventListener(
+      "click",
+      function (e) {
+        textIndex++;
+        if (textIndex >= texts.length) {
+          textIndex--;
+          return;
+        }
+        text = texts[textIndex];
+        console.log(textIndex);
+      },
+      false
+    );
+
+  };
 
   audio.onended = () => {
     audioIndex += 1;
@@ -158,35 +179,7 @@
     canvas.style.marginTop = window.innerHeight * 0.15 + "px";
   }
 
-  function event() {
-    document.addEventListener(
-      "click",
-      function (e) {
-        textIndex++;
-        if (textIndex >= texts.length) {
-          textIndex--;
-          return;
-        }
-        text = texts[textIndex];
-        console.log(textIndex);
-      },
-      false
-    );
-
-    document.addEventListener(
-      "touchstart",
-      function (e) {
-        textIndex++;
-        if (textIndex >= texts.length) {
-          textIndex--;
-          return;
-        }
-        text = texts[textIndex];
-        console.log(textIndex);
-      },
-      false
-    );
-  }
+ 
 
   function init() {
     canvas = document.getElementById(CANVASID);
@@ -195,8 +188,7 @@
     }
     ctx = canvas.getContext("2d");
     setDimensions();
-    event();
-
+    
     for (var i = 0; i < PARTICLE_NUM; i++) {
       particles[i] = new Particle(canvas);
     }
