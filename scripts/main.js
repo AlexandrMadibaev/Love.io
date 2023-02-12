@@ -5,15 +5,12 @@
     window.webkitRequestAnimationFrame ||
     window.msRequestAnimationFrame;
 
-  const loaderEl = document.querySelector(".loader");
 
   const audios = ["audio/main.mp3", "audio/Lost.mp3", "audio/Elegance.mp3"];
   let audioIndex = 0;
   var audio = new Audio("audio/main.mp3");
 
   audio.onloadeddata = () => {
-    console.log("Hello");
-    loaderEl.style.display = "none";
     document.addEventListener(
       "click",
       function (e) {
@@ -36,7 +33,6 @@
   };
 
   function play() {
-    audio.onloadeddata = (event) => console.log(event);
     audio.play();
   }
 
